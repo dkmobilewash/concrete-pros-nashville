@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #17191b;
+
+  /* Brand blue */
+  --color-brand-50: #eef4fc;
+  --color-brand-100: #d7e6f7;
+  --color-brand-200: #b0cdef;
+  --color-brand-300: #7fadE3;
+  --color-brand-400: #3f7dc9;
+  --color-brand-500: #1450a3;
+  --color-brand-600: #0f3d82;
+  --color-brand-700: #0c3168;
+  --color-brand-800: #0b1f33;
+  --color-brand-900: #081627;
+
+  /* Concrete gray scale */
+  --color-concrete-50: #f4f5f6;
+  --color-concrete-100: #e7e9ea;
+  --color-concrete-200: #d3d6d8;
+  --color-concrete-300: #b3b8bb;
+  --color-concrete-400: #8b9296;
+  --color-concrete-500: #6b7175;
+  --color-concrete-600: #55595c;
+  --color-concrete-700: #4a4e52;
+  --color-concrete-800: #313437;
+  --color-concrete-900: #1c1e20;
+
+  --color-amber-accent: #e08a1e;
+
+  --font-heading: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-body: var(--font-inter), Arial, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+
+  --color-concrete-50: var(--color-concrete-50);
+  --color-concrete-100: var(--color-concrete-100);
+  --color-concrete-200: var(--color-concrete-200);
+  --color-concrete-300: var(--color-concrete-300);
+  --color-concrete-400: var(--color-concrete-400);
+  --color-concrete-500: var(--color-concrete-500);
+  --color-concrete-600: var(--color-concrete-600);
+  --color-concrete-700: var(--color-concrete-700);
+  --color-concrete-800: var(--color-concrete-800);
+  --color-concrete-900: var(--color-concrete-900);
+
+  --color-amber-accent: var(--color-amber-accent);
+
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.skew-wordmark {
+  font-family: var(--font-heading), sans-serif;
+  font-style: italic;
+  transform: skewX(-8deg);
+  display: inline-block;
+}

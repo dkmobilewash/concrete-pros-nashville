@@ -1,0 +1,51 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { services, getServiceBySlug } from "@/data/services";
+import { areas, getAreaBySlug } from "@/data/areas";
+import { ServicePageView } from "@/components/ServicePageView";
+import { AreaPageView } from "@/components/AreaPageView";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [...services.map((s) => ({ slug: s.slug })), ...areas.map((a) => ({ slug: a.slug }))];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
+  if (service) {
+    return {
+      title: `${service.name} in Nashville, TN`,
+      description: `${service.shortDescription} Serving Nashville and the surrounding metro. Free written estimates — call (615) 239-1809.`,
+      alternates: { canonical: `/${service.slug}/` },
+    };
+  }
+
+  const area = getAreaBySlug(slug);
+  if (area) {
+    return {
+      title: `Concrete Contractor in ${area.name}, TN`,
+      description: `Driveways, patios, foundations, repair & more in ${area.name}, TN. Family-owned, licensed & insured. ${area.distanceNote}`,
+      alternates: { canonical: `/${area.slug}/` },
+    };
+  }
+
+  return {};
+}
+
+export default async function SlugPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
+  const service = getServiceBySlug(slug);
+  if (service) return <ServicePageView service={service} />;
+
+  const area = getAreaBySlug(slug);
+  if (area) return <AreaPageView area={area} />;
+
+  notFound();
+}

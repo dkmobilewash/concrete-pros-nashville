@@ -7,7 +7,7 @@ export const COMPANY = {
   tagline: "Family-Owned Concrete Contractors Serving Greater Nashville",
   phone: "(615) 239-1809",
   phoneHref: "tel:+16152391809",
-  email: "info@concreteprosofnashville.com",
+  email: "info@concreteprosnashville.com",
   addressLine1: "110 29th Ave N",
   addressLine2: "Nashville, TN 37203",
   city: "Nashville",
@@ -33,9 +33,11 @@ export const COMPANY = {
     { day: "Sunday", closed: true },
   ],
   hoursDisplay: "Mon–Fri: 7:00 AM – 6:00 PM · Sat: 8:00 AM – 2:00 PM · Sun: Closed",
+  // NOTE: social handles are unverified placeholders — confirm the client's
+  // real profile URLs and update these before they're linked publicly.
   social: {
-    facebook: "https://www.facebook.com/concreteprosofnashville",
-    instagram: "https://www.instagram.com/concreteprosofnashville",
+    facebook: "https://www.facebook.com/concreteprosnashville",
+    instagram: "https://www.instagram.com/concreteprosnashville",
     googleProfile: "https://www.google.com/maps/place/?q=Concrete+Pros+of+Nashville",
   },
   founderNote:
@@ -44,7 +46,7 @@ export const COMPANY = {
   reviewCountPlaceholder: 120,
 } as const;
 
-export const SITE_URL = "https://www.concreteprosofnashville.com";
+export const SITE_URL = "https://www.concreteprosnashville.com";
 
 // Site-wide named process — referenced consistently across home, service, area,
 // and combination pages. Individual services may extend/annotate this, but the

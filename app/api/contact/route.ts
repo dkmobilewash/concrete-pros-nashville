@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const notifyTo = process.env.CONTACT_NOTIFY_EMAIL || "info@concreteprosofnashville.com";
+  const notifyTo = process.env.CONTACT_NOTIFY_EMAIL || "info@concreteprosnashville.com";
 
   if (resendApiKey) {
     try {
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: process.env.CONTACT_FROM_EMAIL || "estimates@concreteprosofnashville.com",
+          from: process.env.CONTACT_FROM_EMAIL || "estimates@concreteprosnashville.com",
           to: notifyTo,
           reply_to: body.email,
           subject: `New estimate request from ${body.name}`,

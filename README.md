@@ -33,7 +33,7 @@ npm run start   # serve the production build locally
 The `/contact/` form posts to `app/api/contact/route.ts`. Without configuration it still accepts submissions and logs them server-side (visible in your hosting provider's function logs) so nothing is silently dropped, but **no email is actually sent** until you set:
 
 - `RESEND_API_KEY` — API key from [Resend](https://resend.com) (or swap the route for your preferred email provider)
-- `CONTACT_NOTIFY_EMAIL` — inbox that should receive estimate requests (defaults to `info@concreteprosofnashville.com`)
+- `CONTACT_NOTIFY_EMAIL` — inbox that should receive estimate requests (defaults to `info@concreteprosnashville.com`)
 - `CONTACT_FROM_EMAIL` — verified sending address for your Resend domain
 
 ## Before launch — confirm with the client

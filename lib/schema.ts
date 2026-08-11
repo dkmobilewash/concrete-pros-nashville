@@ -1,5 +1,5 @@
 import { COMPANY, SITE_URL } from "@/lib/constants";
-import type { Area, FAQ, Service } from "@/lib/types";
+import type { Area, BlogPost, FAQ, Service } from "@/lib/types";
 import { areas } from "@/data/areas";
 
 export function localBusinessSchema() {
@@ -88,6 +88,34 @@ export function faqSchema(faqs: FAQ[]) {
         text: f.answer,
       },
     })),
+  };
+}
+
+export function articleSchema(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.question,
+    description: post.metaDescription,
+    datePublished: post.publishedDate,
+    dateModified: post.updatedDate || post.publishedDate,
+    author: {
+      "@type": "Organization",
+      name: COMPANY.name,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: COMPANY.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/concrete-pros-of-nashville-logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}/`,
+    },
   };
 }
 

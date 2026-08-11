@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { areas } from "@/data/areas";
+import { blogPosts } from "@/data/blog";
 import { SITE_URL } from "@/lib/constants";
 
 const STATIC_PATHS = [
@@ -10,6 +11,7 @@ const STATIC_PATHS = [
   "/reviews/",
   "/services/",
   "/service-areas/",
+  "/blog/",
   "/privacy-policy/",
   "/terms/",
 ];
@@ -38,6 +40,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((p) => ({
+    url: `${SITE_URL}/blog/${p.slug}/`,
+    lastModified: new Date(`${p.updatedDate || p.publishedDate}T00:00:00`),
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
   const combinationEntries: MetadataRoute.Sitemap = [];
   for (const s of services) {
     for (const a of areas) {
@@ -50,5 +59,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticEntries, ...serviceEntries, ...areaEntries, ...combinationEntries];
+  return [...staticEntries, ...serviceEntries, ...areaEntries, ...blogEntries, ...combinationEntries];
 }

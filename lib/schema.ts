@@ -8,8 +8,14 @@ export function localBusinessSchema() {
     "@type": "GeneralContractor",
     "@id": `${SITE_URL}/#business`,
     name: COMPANY.name,
-    image: `${SITE_URL}/images/concrete-pros-of-nashville-logo.png`,
-    logo: `${SITE_URL}/images/concrete-pros-of-nashville-logo.png`,
+    // No real logo file exists yet (see README) — point structured data at
+    // the generated brand assets instead of a dead /images/ path so this
+    // doesn't validate as a broken image reference in the meantime. Trailing
+    // slash matters here: this site's trailingSlash:true config redirects
+    // the bare path, and structured-data URLs should resolve directly
+    // rather than send a validator through a redirect hop.
+    image: `${SITE_URL}/opengraph-image/`,
+    logo: `${SITE_URL}/icon2/`,
     url: SITE_URL,
     telephone: COMPANY.phone,
     priceRange: COMPANY.priceRange,

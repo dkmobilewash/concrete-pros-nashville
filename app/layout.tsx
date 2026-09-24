@@ -54,9 +54,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${barlowCondensed.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col pb-16 lg:pb-0">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-brand-700 focus:px-4 focus:py-2.5 focus:text-sm focus:font-bold focus:text-white"
+        >
+          Skip to main content
+        </a>
         <JsonLd data={localBusinessSchema()} />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
         <StickyCallBar />
       </body>

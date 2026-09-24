@@ -44,3 +44,14 @@ export function socialMeta(
     },
   };
 }
+
+/**
+ * No route on this site currently needs to be excluded from indexing, so
+ * nothing spreads this in today — it exists so a future page (a staging
+ * page, an internal tool, a duplicate-content variant) has a one-line,
+ * already-correct way to opt out rather than someone hand-rolling the
+ * `robots` shape from scratch. Usage: `metadata = { ...NOINDEX, title, ... }`.
+ */
+export const NOINDEX: Pick<Metadata, "robots"> = {
+  robots: { index: false, follow: false },
+};

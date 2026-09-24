@@ -5,12 +5,18 @@ import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { blogPosts } from "@/data/blog";
+import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "Concrete Blog | Nashville Concrete Answers";
+const DESCRIPTION =
+  "Straight answers to the concrete questions Nashville homeowners actually search for — pricing, materials, hiring a contractor, and how long concrete really lasts.";
 
 export const metadata: Metadata = {
-  title: "Concrete Blog | Nashville Concrete Answers",
-  description:
-    "Straight answers to the concrete questions Nashville homeowners actually search for — pricing, materials, hiring a contractor, and how long concrete really lasts.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/blog/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/blog/"),
 };
 
 export default function BlogIndexPage() {

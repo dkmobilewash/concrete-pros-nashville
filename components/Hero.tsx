@@ -29,7 +29,7 @@ export function Hero({
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/contact/"
-              className="rounded-md bg-amber-accent px-6 py-3.5 font-bold text-white shadow-lg hover:opacity-90 transition-opacity"
+              className="rounded-md bg-amber-accent px-6 py-3.5 font-bold text-brand-900 shadow-lg hover:opacity-90 transition-opacity"
             >
               Get a Free Estimate
             </Link>

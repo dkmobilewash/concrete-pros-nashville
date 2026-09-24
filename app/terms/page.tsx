@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "Terms of Service";
+const DESCRIPTION = `Terms of service for use of the ${COMPANY.name} website.`;
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: `Terms of service for use of the ${COMPANY.name} website.`,
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/terms/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/terms/"),
 };
+
+const BREADCRUMB_ITEMS = [{ name: "Home", path: "/" }, { name: "Terms of Service", path: "/terms/" }];
 
 export default function TermsPage() {
   return (
     <>
-      <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Terms of Service", path: "/terms/" }]} />
+      <JsonLd data={breadcrumbSchema(BREADCRUMB_ITEMS)} />
+      <Breadcrumbs items={BREADCRUMB_ITEMS} />
       <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="font-heading text-4xl font-extrabold text-concrete-900 mb-6">Terms of Service</h1>
         <div className="space-y-5 text-concrete-700 text-sm leading-relaxed">

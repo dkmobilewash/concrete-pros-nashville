@@ -10,7 +10,7 @@ export function CTASection({ headline, body }: { headline: string; body: string 
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/contact/"
-            className="rounded-md bg-amber-accent px-7 py-3.5 font-bold text-white shadow-lg hover:opacity-90 transition-opacity"
+            className="rounded-md bg-amber-accent px-7 py-3.5 font-bold text-brand-900 shadow-lg hover:opacity-90 transition-opacity"
           >
             Request Your Free Estimate
           </Link>

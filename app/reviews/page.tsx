@@ -5,12 +5,18 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
+import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "Reviews";
+const DESCRIPTION =
+  "See what Nashville-area homeowners and property managers say about Concrete Pros of Nashville's driveway, patio, foundation, and repair work.";
 
 export const metadata: Metadata = {
-  title: "Reviews",
-  description:
-    "See what Nashville-area homeowners and property managers say about Concrete Pros of Nashville's driveway, patio, foundation, and repair work.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/reviews/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/reviews/"),
 };
 
 export default function ReviewsPage() {

@@ -4,12 +4,18 @@ import { AreaGrid } from "@/components/AreaGrid";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
+import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "Service Areas | Greater Nashville, TN";
+const DESCRIPTION =
+  "Concrete Pros of Nashville serves Belle Meade, Forest Hills, Brentwood, Green Hills, Franklin, Hendersonville, Gallatin, East Nashville, Murfreesboro, The Gulch, Downtown Nashville, Smyrna, and Lebanon.";
 
 export const metadata: Metadata = {
-  title: "Service Areas | Greater Nashville, TN",
-  description:
-    "Concrete Pros of Nashville serves Belle Meade, Forest Hills, Brentwood, Green Hills, Franklin, Hendersonville, Gallatin, East Nashville, Murfreesboro, The Gulch, Downtown Nashville, Smyrna, and Lebanon.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/service-areas/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/service-areas/"),
 };
 
 export default function ServiceAreasHubPage() {

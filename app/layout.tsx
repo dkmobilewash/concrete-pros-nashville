@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -29,9 +29,25 @@ export const metadata: Metadata = {
   },
   description:
     "Family-owned, licensed & insured concrete contractor serving Nashville and the surrounding metro. Driveways, patios, foundations, repair & more. Free estimates.",
-  icons: {
-    icon: "/favicon.svg",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: COMPANY.name,
+    title: `${COMPANY.name} | Concrete Contractor in Nashville, TN`,
+    description:
+      "Family-owned, licensed & insured concrete contractor serving Nashville and the surrounding metro. Driveways, patios, foundations, repair & more.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${COMPANY.name} | Concrete Contractor in Nashville, TN`,
+    description:
+      "Family-owned, licensed & insured concrete contractor serving Nashville and the surrounding metro. Driveways, patios, foundations, repair & more.",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b1f33",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

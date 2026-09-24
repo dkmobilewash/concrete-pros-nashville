@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "Privacy Policy";
+const DESCRIPTION = `Privacy policy for ${COMPANY.name}, covering how we collect, use, and protect information submitted through our website.`;
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `Privacy policy for ${COMPANY.name}, covering how we collect, use, and protect information submitted through our website.`,
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/privacy-policy/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/privacy-policy/"),
 };
+
+const BREADCRUMB_ITEMS = [{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy-policy/" }];
 
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy-policy/" }]} />
+      <JsonLd data={breadcrumbSchema(BREADCRUMB_ITEMS)} />
+      <Breadcrumbs items={BREADCRUMB_ITEMS} />
       <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 prose-headings:font-heading">
         <h1 className="font-heading text-4xl font-extrabold text-concrete-900 mb-6">Privacy Policy</h1>
         <div className="space-y-5 text-concrete-700 text-sm leading-relaxed">

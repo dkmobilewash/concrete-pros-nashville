@@ -4,12 +4,18 @@ import { ServiceGrid } from "@/components/ServiceGrid";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
+import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "Concrete Services in Nashville, TN";
+const DESCRIPTION =
+  "Driveways, patios, foundations, stamped concrete, repair, retaining walls, and more — explore every concrete service Concrete Pros of Nashville offers across the Nashville metro.";
 
 export const metadata: Metadata = {
-  title: "Concrete Services in Nashville, TN",
-  description:
-    "Driveways, patios, foundations, stamped concrete, repair, retaining walls, and more — explore every concrete service Concrete Pros of Nashville offers across the Nashville metro.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/services/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/services/"),
 };
 
 export default function ServicesHubPage() {

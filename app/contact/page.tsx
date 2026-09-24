@@ -5,12 +5,17 @@ import { ContactForm } from "@/components/ContactForm";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "Contact Us | Free Estimate";
+const DESCRIPTION =
+  "Request a free concrete estimate from Concrete Pros of Nashville. Call (615) 239-1809 or send us your project details and we'll follow up within one business day.";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Free Estimate",
-  description:
-    "Request a free concrete estimate from Concrete Pros of Nashville. Call (615) 239-1809 or send us your project details and we'll follow up within one business day.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/contact/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/contact/"),
 };
 
 export default function ContactPage() {

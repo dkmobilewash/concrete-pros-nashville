@@ -14,7 +14,7 @@ export function StickyCallBar() {
           </svg>
           Call Now
         </a>
-        <Link href="/contact/" className="flex items-center justify-center gap-2 py-3.5 bg-amber-accent text-white font-bold text-sm">
+        <Link href="/contact/" className="flex items-center justify-center gap-2 py-3.5 bg-amber-accent text-brand-900 font-bold text-sm">
           Free Estimate
         </Link>
       </div>

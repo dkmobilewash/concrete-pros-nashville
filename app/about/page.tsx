@@ -7,12 +7,17 @@ import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = "About Us";
+const DESCRIPTION =
+  "Concrete Pros of Nashville is a family-owned, locally operated concrete contractor based on 29th Ave N in Nashville, TN. Learn about our crew, our process, and why we do this work.";
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "Concrete Pros of Nashville is a family-owned, locally operated concrete contractor based on 29th Ave N in Nashville, TN. Learn about our crew, our process, and why we do this work.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/about/" },
+  ...socialMeta(`${TITLE} | ${COMPANY.name}`, DESCRIPTION, "/about/"),
 };
 
 export default function AboutPage() {

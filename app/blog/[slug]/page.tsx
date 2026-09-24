@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
 import { BlogPostView } from "@/components/BlogPostView";
+import { socialMeta } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -18,10 +19,15 @@ export async function generateMetadata({
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
 
+  const path = `/blog/${post.slug}/`;
   return {
     title: post.question,
     description: post.metaDescription,
-    alternates: { canonical: `/blog/${post.slug}/` },
+    alternates: { canonical: path },
+    ...socialMeta(post.question, post.metaDescription, path, {
+      publishedTime: post.publishedDate,
+      modifiedTime: post.updatedDate,
+    }),
   };
 }
 

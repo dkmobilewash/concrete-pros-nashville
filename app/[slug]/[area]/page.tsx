@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { services, getServiceBySlug } from "@/data/services";
 import { areas, getAreaBySlug } from "@/data/areas";
 import { CombinationPageView } from "@/components/CombinationPageView";
+import { socialMeta } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -26,10 +27,14 @@ export async function generateMetadata({
   const area = getAreaBySlug(areaSlug);
   if (!service || !area) return {};
 
+  const title = `${service.name} in ${area.name}, TN`;
+  const description = `${service.name} in ${area.name}, TN — ${service.shortDescription.toLowerCase()} Family-owned, licensed & insured. Free written estimates.`;
+  const path = `/${service.slug}/${area.slug}/`;
   return {
-    title: `${service.name} in ${area.name}, TN`,
-    description: `${service.name} in ${area.name}, TN — ${service.shortDescription.toLowerCase()} Family-owned, licensed & insured. Free written estimates.`,
-    alternates: { canonical: `/${service.slug}/${area.slug}/` },
+    title,
+    description,
+    alternates: { canonical: path },
+    ...socialMeta(title, description, path),
   };
 }
 

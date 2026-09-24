@@ -13,12 +13,17 @@ import { JsonLd } from "@/components/JsonLd";
 import { faqSchema } from "@/lib/schema";
 import { generalFaqs } from "@/data/generalFaqs";
 import { COMPANY } from "@/lib/constants";
+import { socialMeta } from "@/lib/seo";
+
+const TITLE = `${COMPANY.name} | Concrete Contractor in Nashville, TN`;
+const DESCRIPTION =
+  "Family-owned concrete contractor serving Nashville, TN and the surrounding metro. Driveways, patios, foundations, stamped concrete, repair & more. Free written estimates — call (615) 239-1809.";
 
 export const metadata: Metadata = {
-  title: `${COMPANY.name} | Concrete Contractor in Nashville, TN`,
-  description:
-    "Family-owned concrete contractor serving Nashville, TN and the surrounding metro. Driveways, patios, foundations, stamped concrete, repair & more. Free written estimates — call (615) 239-1809.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/" },
+  ...socialMeta(TITLE, DESCRIPTION, "/"),
 };
 
 export default function HomePage() {
